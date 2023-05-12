@@ -105,7 +105,7 @@ Folder 8: For the Right Side onboard component controller
     
     on the left and right side onboard computers to reset the Redstone Integrators back to 0.
 
-### MODS USED:
+### RELEVANT MODS:
 
 **Valkyrien Skies:**
 ```
