@@ -83,28 +83,32 @@ Folder 8: For the Right Side onboard component controller
 6. Spin the hand cranks to make them look like handle bars.
 
 ### PREFLIGHT CHECKS
-1. Run "remote.lua" on the Create-Link Controller setup (0scorcher_remote_armed.nbt) and grab the Link Cotroller
-2. Prepare to run "reset.lua" on the Wireless Pocket Computer. This should reset the craft thrusters and reboot the main onboard computer if anything goes wrong
+1. Run `remote.lua` on the Create-Link Controller setup (0scorcher_remote_armed.nbt) and grab the Link Cotroller
+2. Prepare to run `reset.lua` on the Wireless Pocket Computer. This should reset the craft thrusters and reboot the main onboard computer if anything goes wrong
 3. Prepare a VS2-Eureka Ship Helm on hand. Placing it on a ship forces it to stop freaking out if anything goes wrong 
-4. Run "recv_L_scorcher.lua" on the left side onboard computer
-5. Run "recv_R_scorcher.lua" on the right side onboard computer. These control the thrusters
-6. Run "flight_control_firmware_scorcher.lua" on the main onboard computer
+4. Run `recv_L_scorcher.lua` on the left side onboard computer
+5. Run `recv_R_scorcher.lua` on the right side onboard computer. These control the thrusters
+6. Run `flight_control_firmware_scorcher.lua` on the main onboard computer
 7. Fly
 
 ### POSTFLIGHT CHECKS
 **THIS IS IMPORTANT TO DO BEFORE LOGGING OFF**
-1. After flying, run "reset.lua" on your Wireless Pocket Computer to shutoff the thrusters and stop the main script. 
+1. After flying, run `reset.lua` on your Wireless Pocket Computer to shutoff the thrusters and stop the main script. 
 
     CC:Computers turnoff when the player exits the world. Upon logging back in, the onboard computers would be turned off but the Redstone Integrator peripherals would retain their last redstone settings and inturn would still be powering the thrusters.
     
     If this ever happens, the Scorcher would start flying off by itself when you log in.
     
-    At the very least quickly prepare a VS2-Eureka Ship Helm to calm down the ship and **RUN the "recv_L_scorcher.lua" and "recv_R_scorcher.lua" scripts** on the left and right side onboard computers to reset the Redstone Integrators back to 0.
+    At the very least quickly prepare a VS2-Eureka Ship Helm to calm down the ship and 
+    
+    **RUN the `recv_L_scorcher.lua` and `recv_R_scorcher.lua` scripts** 
+    
+    on the left and right side onboard computers to reset the Redstone Integrators back to 0.
 
 ### MODS USED:
 
 **Valkyrien Skies:**
-
+```
 valkyrienskies-118-forge-2.1.0-beta.12c3076eba24 (Valkyrien Skies 2 Core)
 
 vc-1.5.2+2090972a50 (Valkyrien Skies 2-Computers)
@@ -116,24 +120,24 @@ takeoff-forge-1.0.0-beta1+308678c5c5 (Valkyrien Skies 2-Takeoff)
 tournament-forge-1.0.0-beta3-0.6+f5dce4613f (Valkyrien Skies 2-Tournament)
 
 Clockwork_Pre-Alpha_Patch_1.3c_FORGE (Valkyrien Skies 2-Clockwork)
-
+```
 
 **Create:**
-
+```
 create-1.18.2-0.5.0.i (Create Core)
 
 createbigcannons-forge-1.18.2-0.5.1.a-nightly-1c78f14 (Create Big Cannons)
-
+```
 
 **Macaw's Windows (Sand Scorcher "Armor"):**
-
+```
 mcw-windows-2.1.1-mc1.18.2forge
-
+```
 
 **ComputerCraft:**
-
+```
 cc-tweaked-1.18.2-1.101.2 (ComputerCraft Tweaked)
 
 AdvancedPeripherals-0.7.27r (ComputerCraft Advanced Peripherals)
-
+```
 
