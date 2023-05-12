@@ -10,31 +10,32 @@
   ![image](https://github.com/19PHOBOSS98/Minecraft-Omnidirectional-Drone-Controller-ValkyrienSkies2-ComputerCraft/assets/37253663/e7c710f2-2ac9-422d-902a-3aeb1eb5b204)
 
 Minecraft has a giant modding community. With the Valkyrien Skies 2 mod (currently a modding API for building sub-mods), players are able to build physics based creations. The ComputerCraft mod adds in-game computers and peripherals with Lua based programming.
-
+I abused both along with my college degree to create this.
 
 ## The Handicaps That I Had To Overcome
 Imma be honest, it wasn't easy for me to pull this off. 
 
 ### Redstone
-The thrusters (the red and white rockets) are powered by Redstone. For those of you unfamiliar with Redstone, it only comes in POSITIVE INTEGERS. [More about Redstone here...](https://minecraft.fandom.com/wiki/Redstone_Dust)
+The thrusters (the red and white rockets) are powered by Redstone. [More about Redstone here...](https://minecraft.fandom.com/wiki/Redstone_Dust)
+For those of you unfamiliar with Redstone, it only comes in POSITIVE INTEGERS. 
 
 That made it difficult to control the thrusters by default. I had to resort to using Pulse Width Modulation to get finer control over the thrusters.
 
 At first I assumed it would be enough to use a fixed redstone value and just pulse it in certain intervals to control the thrusters. However, thanks to **NikZapp**'s help, I was able to get the full range of redstone strength while retaining fine control!
 
-Thanks to **NikZapp** For the Distributed-PWM-Redstone Algorithm. Never would have fine control over RedStone Thrusters without it!
+Thanks to **NikZapp** For the Distributed-PWM-Redstone Algorithm. Never would have done this without it!
 
 ### Inertia Tensor
-Currently, the mods I used didn't provide the ship's Inertia Tensor right out of the box. I had to build my own inertia tensor for my ships.
+Currently, the mods I used didn't provide the ship's Inertia Tensor right out of the box. I had to build my own inertia tensor for my ship.
 
-With Create's Schematics.nbt file and a dictionary of block masses, I wrote my own separate java program to extract the data and construct an inertia tensor
+With Create's Schematics.nbt file and a dictionary of block masses, I wrote my own separate java program to extract the data and construct an inertia tensor.
 
 A big thanks to Querz for building the Java Library I used to extract NBT data from the schematic files:
 https://github.com/Querz/NBT
 
 But tbh, I think the VS2-Computers addon will eventually implement a function in the future to expose the ships inertia tensor so people wouldn't have to go thru what I went thru...
 
-
+## Prerequisits
 You might need to read up on these topics before diving in the code. Here are some videos that should help you get started:
 
   +Quaternions: https://youtu.be/1yoFjjJRnLY
@@ -46,20 +47,25 @@ You might need to read up on these topics before diving in the code. Here are so
   +PID Controller for Lua: https://youtu.be/K4sHec1qGKg
 
 
-##A Few Things To Note Before Using The Schematics and World Save
+## A Few Things To Note Before Using The Schematics and World Save
 
-**!!!!USE AT YOUR OWN RISK, MAKE BACK UPS!!!!**
+### **!!!!USE AT YOUR OWN RISK, MAKE BACK UPS!!!!**
 
 Prepare the game to use atleast **8GB** of RAM by setting the JVM Arguments in the Minecraft Launcher
 
-###COMPUTERCRAFT FOLDERS
+### COMPUTERCRAFT FOLDERS
+
 Folder 0: For the Wireless Pocket Computer.
-Folder 4: For the Create Link Controller setup (0scorcher_remote_armed.nbt).
+
+Folder 4: For the Create Link Controller setup (0scorcher_remote_armed.nbt)
+
 Folder 5: For the Left Side onboard component controller
+
 Folder 7: For the main onboard computer
+
 Folder 8: For the Right Side onboard component controller
 
-###PRE-"SHIP ASSEMBLY" CHECKS
+### PRE-"SHIP ASSEMBLY" CHECKS
 1. Make sure to set the Thruster Speed to 55000 in the VS2-Tournament Mod Config Settings (this is specifically for Sand Scorcher).
 2. Disable the block-black-list over at the VS2-Eureka mod config settings (or whichever VS2 addon that has an assembler block that you use to assemble ships with). 
 3. Build Create schematic as is. Do NOT rotate or mirror the schematics.
@@ -68,7 +74,7 @@ Folder 8: For the Right Side onboard component controller
 6. Replenish cannon ammo and flamethrower charges.
 7. I usually just go for a VS2-Eureka Ship Helm to assemble a ship but the other addons' assembler blocks should work just as fine.
 
-###POST-"SHIP ASSEMBLY" CHECKS
+### POST-"SHIP ASSEMBLY" CHECKS
 1. Make sure the VS2-Tournament thrusters are all upgraded to level 5 thrusters.
 2. Remove the placed temporary blocks placed earlier.
 3. Turn on the cable-modems on the redstone integrators.
@@ -76,7 +82,7 @@ Folder 8: For the Right Side onboard component controller
 5. If you're assembling the Scorcher variant with the "flame" contraption, be prepared to glue the flames yourself.
 6. Spin the hand cranks to make them look like handle bars.
 
-###PREFLIGHT CHECKS
+### PREFLIGHT CHECKS
 1. Run "remote.lua" on the Create-Link Controller setup (0scorcher_remote_armed.nbt) and grab the Link Cotroller
 2. Prepare to run "reset.lua" on the Wireless Pocket Computer. This should reset the craft thrusters and reboot the main onboard computer if anything goes wrong
 3. Prepare a VS2-Eureka Ship Helm on hand. Placing it on a ship forces it to stop freaking out if anything goes wrong 
@@ -85,15 +91,19 @@ Folder 8: For the Right Side onboard component controller
 6. Run "flight_control_firmware_scorcher.lua" on the main onboard computer
 7. Fly
 
-###POSTFLIGHT CHECKS
-1. After flying, run "reset.lua" on your Wireless Pocket Computer to shutoff the thrusters and stop the main script. **THIS IS IMPORTANT TO DO BEFORE LOGGING OFF**. 
-    CC:Computers reboot when the player exits the world. Upon logging back in, the onboard computers would be turned off but the RedstoneIntegrator peripherals would retain their last redstone settings and inturn would still be powering the thrusters.
-    If this ever happens, the scorcher would start flying off by itself when you log in.
-    At the very least quickly prepare a VS2-Eureka Ship Helm to calm down the ship.
+### POSTFLIGHT CHECKS
+**THIS IS IMPORTANT TO DO BEFORE LOGGING OFF**
+1. After flying, run "reset.lua" on your Wireless Pocket Computer to shutoff the thrusters and stop the main script. 
 
-###MODS USED:
+    CC:Computers turnoff when the player exits the world. Upon logging back in, the onboard computers would be turned off but the Redstone Integrator peripherals would retain their last redstone settings and inturn would still be powering the thrusters.
+    
+    If this ever happens, the Scorcher would start flying off by itself when you log in.
+    
+    At the very least quickly prepare a VS2-Eureka Ship Helm to calm down the ship and **RUN the "recv_L_scorcher.lua" and "recv_R_scorcher.lua" scripts** on the left and right side onboard computers to reset the Redstone Integrators back to 0.
 
-Valkyrien Skies:
+### MODS USED:
+
+**Valkyrien Skies:**
 
 valkyrienskies-118-forge-2.1.0-beta.12c3076eba24 (Valkyrien Skies 2 Core)
 
@@ -108,19 +118,19 @@ tournament-forge-1.0.0-beta3-0.6+f5dce4613f (Valkyrien Skies 2-Tournament)
 Clockwork_Pre-Alpha_Patch_1.3c_FORGE (Valkyrien Skies 2-Clockwork)
 
 
-Create:
+**Create:**
 
 create-1.18.2-0.5.0.i (Create Core)
 
 createbigcannons-forge-1.18.2-0.5.1.a-nightly-1c78f14 (Create Big Cannons)
 
 
-Macaw's Windows (Sand Scorcher "Armor"):
+**Macaw's Windows (Sand Scorcher "Armor"):**
 
 mcw-windows-2.1.1-mc1.18.2forge
 
 
-ComputerCraft:
+**ComputerCraft:**
 
 cc-tweaked-1.18.2-1.101.2 (ComputerCraft Tweaked)
 
