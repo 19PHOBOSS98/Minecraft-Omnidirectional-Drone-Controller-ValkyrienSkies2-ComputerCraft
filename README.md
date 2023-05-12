@@ -2,7 +2,7 @@
 
 ## Example Uses
   ### Mr. Smiles the SAND SCORCHER
-  
+  [YouTube Video]()
   ![Snapshot](https://github.com/19PHOBOSS98/Minecraft-Omnidirectional-Drone-Controller-ValkyrienSkies2-ComputerCraft/assets/37253663/d2666dca-22d5-44d9-8cd5-263a397e4755)
 
   ### Phase 1: Prototype
@@ -104,6 +104,28 @@ Folder 8: For the Right Side onboard component controller
     **RUN the `recv_L_scorcher.lua` and `recv_R_scorcher.lua` scripts** 
     
     on the left and right side onboard computers to reset the Redstone Integrators back to 0.
+
+## CONTROLS
+```
+space   - up
+shift   - down
+w,a,s,d - forward,left,backward,right
+
+space+a - yaw left
+space+d - yaw right
+space+w - pitch forward
+space+s - pitch back
+shift+a - roll left
+shift+d - roll right
+
+a+w+space - drift left
+d+w+space - drift right
+a+s+space - drift left backwards
+d+s+space - drift right backwards
+
+shift+space+w - cannons full-auto
+shift+space+s - flamethrower full-auto
+```
 
 ### RELEVANT MODS:
 
