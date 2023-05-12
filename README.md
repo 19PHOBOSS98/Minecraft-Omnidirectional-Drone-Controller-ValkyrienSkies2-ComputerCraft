@@ -46,4 +46,29 @@ You might need to read up on these topics before diving in the code. Here are so
   +PID Controller for Lua: https://youtu.be/K4sHec1qGKg
 
 
+##A Few Things To Note Before Using The Schematics
+
+**!!!!USE AT YOUR OWN RISK, MAKE BACK UPS!!!!**
+
+Prepare the game to use atleast **8GB** of RAM by setting the JVM Arguments in the Minecraft Launcher
+
+###MODS USED:
+
+Valkyrien Skies:
+valkyrienskies-118-forge-2.1.0-beta.12c3076eba24
+takeoff-forge-1.0.0-beta1+308678c5c5
+tournament-forge-1.0.0-beta3-0.6+f5dce4613f
+Clockwork_Pre-Alpha_Patch_1.3c_FORGE
+Create:
+create-1.18.2-0.5.0.i
+createbigcannons-forge-1.18.2-0.5.1.a-nightly-1c78f14
+
+Verry Important (Go check out the mod):
+mcw-windows-2.1.1-mc1.18.2forge
+
+
+
+ComputerCraft:
+cc-tweaked-1.18.2-1.101.2
+AdvancedPeripherals-0.7.27r
 
