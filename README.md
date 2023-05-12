@@ -46,29 +46,70 @@ You might need to read up on these topics before diving in the code. Here are so
   +PID Controller for Lua: https://youtu.be/K4sHec1qGKg
 
 
-##A Few Things To Note Before Using The Schematics
+##A Few Things To Note Before Using The Schematics and World Save
 
 **!!!!USE AT YOUR OWN RISK, MAKE BACK UPS!!!!**
 
 Prepare the game to use atleast **8GB** of RAM by setting the JVM Arguments in the Minecraft Launcher
 
+###COMPUTERCRAFT FOLDERS
+Folder 0: For the Wireless Pocket Computer.
+Folder 4: For the Create Link Controller setup (0scorcher_remote_armed.nbt).
+Folder 5: For the Left Side onboard component controller
+Folder 7: For the main onboard computer
+Folder 8: For the Right Side onboard component controller
+
+###PRE-"SHIP ASSEMBLY" CHECKS (For Sand Scorcher)
+1. Make sure to set the Thruster Speed to 55000 in the VS2-Tournament Mod Config Settings  
+2. Build Create schematic as is. Do NOT rotate or mirror the schematic
+3. Connect the floating parts of the ship together with temporary blocks (I usually just use wool)
+4. 
+
+###POST-"SHIP ASSEMBLY" CHECKS
+
+###PREFLIGHT CHECKS (For Sand Scorcher)
+1. Run "remote.lua" on the Create Link Controller setup (0scorcher_remote_armed.nbt) and grab the Link Cotroller
+2. Prepare to run "reset.lua" on the Wireless Pocket Computer. This should reset the craft thrusters and reboot the main onboard computer if anything goes wrong
+3. Run "recv_L_scorcher.lua" on the left side onboard computer
+4. Run "recv_R_scorcher.lua" on the right side onboard computer. These control the thrusters
+5. Run "flight_control_firmware_scorcher.lua" on the main onboard computer
+6. Fly
+
+###POSTFLIGHT CHECKS
+
 ###MODS USED:
 
 Valkyrien Skies:
-valkyrienskies-118-forge-2.1.0-beta.12c3076eba24
-takeoff-forge-1.0.0-beta1+308678c5c5
-tournament-forge-1.0.0-beta3-0.6+f5dce4613f
-Clockwork_Pre-Alpha_Patch_1.3c_FORGE
-Create:
-create-1.18.2-0.5.0.i
-createbigcannons-forge-1.18.2-0.5.1.a-nightly-1c78f14
 
-Verry Important (Go check out the mod):
+valkyrienskies-118-forge-2.1.0-beta.12c3076eba24 (Valkyrien Skies 2 Core)
+
+vc-1.5.2+2090972a50 (Valkyrien Skies 2-Computers)
+
+eureka-1.1.0-beta.8 (Valkyrien Skies 2-Eureka)
+
+takeoff-forge-1.0.0-beta1+308678c5c5 (Valkyrien Skies 2-Takeoff)
+
+tournament-forge-1.0.0-beta3-0.6+f5dce4613f (Valkyrien Skies 2-Tournament)
+
+Clockwork_Pre-Alpha_Patch_1.3c_FORGE (Valkyrien Skies 2-Clockwork)
+
+
+Create:
+
+create-1.18.2-0.5.0.i (Create Core)
+
+createbigcannons-forge-1.18.2-0.5.1.a-nightly-1c78f14 (Create Big Cannons)
+
+
+Macaw's Windows (Sand Scorcher "Armor"):
+
 mcw-windows-2.1.1-mc1.18.2forge
 
 
-
 ComputerCraft:
-cc-tweaked-1.18.2-1.101.2
-AdvancedPeripherals-0.7.27r
+
+cc-tweaked-1.18.2-1.101.2 (ComputerCraft Tweaked)
+
+AdvancedPeripherals-0.7.27r (ComputerCraft Advanced Peripherals)
+
 
