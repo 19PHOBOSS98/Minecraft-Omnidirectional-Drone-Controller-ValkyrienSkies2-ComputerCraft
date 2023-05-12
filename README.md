@@ -1,8 +1,10 @@
 # Minecraft-Omnidirectional-Drone-Controller | Built With ValkyrienSkies2, Create & ComputerCraft Mods
 
+[Download the Map and Mod pack From PlanetMinecraft](https://www.planetminecraft.com/project/mr-grins-the-sand-scorcher-valkyrien-skies-2-create-computercraft/)
+
 ## Example Uses
-  ### Mr. Smiles the SAND SCORCHER
-  [YouTube Video]()
+  ### Mr. Grin the SAND SCORCHER
+  [YouTube Video](https://youtu.be/OMBatVoZDB8)
   ![Snapshot](https://github.com/19PHOBOSS98/Minecraft-Omnidirectional-Drone-Controller-ValkyrienSkies2-ComputerCraft/assets/37253663/d2666dca-22d5-44d9-8cd5-263a397e4755)
 
   ### Phase 1: Prototype
